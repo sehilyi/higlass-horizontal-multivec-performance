@@ -3,6 +3,7 @@
 - The number of rows: `200`, `500`, `1,000`, `5,000`, and `10,000`
 - Tilesets base resolution: `1`
 - Test on `MacBook Pro (16-inch, 2019), 2.6 GHz 6-Core Intel Core i7, 32 GB 2667 MHz DDR4`
+- The size of a horizontal-multivec track: `1742x888`
 - Test datasets are generated using [sehilyi/higlass-bigwigs-to-multivec](https://github.com/sehilyi/higlass-bigwigs-to-multivec).
 - Time durations to render `horizontal-multivec` tracks are calculated in a [separate branch](https://github.com/sehilyi/higlass/tree/sehilyi/bottleneck) of a sehilyi/HiGlass repository.
 
