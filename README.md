@@ -1,14 +1,16 @@
 # higlass-horizontal-multivec-performance
 
+This repository demonstrates the results of performance tests in rendering `horizontal-multivec` tracks using [HiGlass](http://higlass.io/).
+
 ## Settings
-- The number of rows (**Row**): `200`, `500`, `1,000`, `5,000`, and `10,000`
-- The size of a horizontal-multivec track (**View**): full size (`1742x938`) and half size (`875x488`)
-- Repeated five times for the each combination of {**Row**, **View**}, total `50` times (`5` * `5` * `2`).
-- Machine: `MacBook Pro (16-inch, 2019), 2.6 GHz 6-Core Intel Core i7, 32 GB 2667 MHz DDR4` (power adapter connected, no unnecessary apps were running)
-- Browser: `Firefox 74.0 (64-bit)` (caching diabled)
-- Used a single `horizontal-multivec` track on the center (refer to viewConfig below).
-- Test datasets are generated using [sehilyi/higlass-bigwigs-to-multivec](https://github.com/sehilyi/higlass-bigwigs-to-multivec) (base resolution=`1`).
-- Time durations to render `horizontal-multivec` tracks are calculated in a [separate branch](https://github.com/sehilyi/higlass/tree/sehilyi/bottleneck) of a [sehilyi/HiGlass fork](https://github.com/sehilyi/higlass/).
+- The number of rows (**_Row_**): `200`, `500`, `1,000`, `5,000`, and `10,000`
+- The size of a horizontal-multivec track (**_View_**): full size (`1742x938`) and half size (`875x488`)
+- Tests are repeated for five times per each combination of {**_Row_**, **_View_**}, total `50` times (`5` x `5` x `2`).
+- Machine: `MacBook Pro (16-inch, 2019), 2.6 GHz 6-Core Intel Core i7, 32 GB 2667 MHz DDR4` (power adapter connected, unnecessary apps closed)
+- Browser: `Firefox 74.0 (64-bit)` (cache diabled)
+- View config: A single `horizontal-multivec` track is positioned on `center` (refer to `viewConfig` below).
+- Datasets: Generated using [sehilyi/higlass-bigwigs-to-multivec](https://github.com/sehilyi/higlass-bigwigs-to-multivec) (base resolution=`1`).
+- Time duration to render `horizontal-multivec` tracks is calculated in a [separate branch](https://github.com/sehilyi/higlass/tree/sehilyi/bottleneck) of a [sehilyi/higlass fork](https://github.com/sehilyi/higlass/).
 - Currently, only the performance of the initial rendering is tested.
 
 ## Results
@@ -30,13 +32,13 @@ Summary of results:
     - Time calculation starts at `TiledPixiTrack.receivedTiles()` ([here](https://github.com/sehilyi/higlass/blob/68573be63d652960539f92bbceeefb65ee393fa5/app/scripts/TiledPixiTrack.js#L646))
     - Time calculation ends at `TiledPixiTrack.receivedTiles()` ([here](https://github.com/sehilyi/higlass/blob/68573be63d652960539f92bbceeefb65ee393fa5/app/scripts/TiledPixiTrack.js#L736))
 - `Time Total` is the time duration between the start calling `hglib.viewer()` and end calling `TiledPixiTrack.receivedTiles()`.
-    - `Time Total` is the union of the time of `Preparing` and `Renderig`, and `Preparing` and `Renderig` are not overlapped each other.
+    - `Time Total` == (`Preparing` + `Renderig`), and there is no overlap between `Preparing` and `Renderig`.
 
 Inside of `Preparing`:
 
 <img width="689" alt="Screen Shot 2020-03-19 at 2 39 07 PM" src="https://user-images.githubusercontent.com/9922882/77102560-6ae95c00-69ef-11ea-8190-185761de93bb.png">
 
-- The process of fetching tilesets takes the most time duration (96%) in _Preparation_, mainly by `DataFetcher.fetchTilesDebounced()`, followed by `tile-proxy.fetchEither()`.
+- The process of fetching tilesets takes the most time duration (96%) in _Preparation_, mainly by `DataFetcher.fetchTilesDebounced()` (fetching tilesets), followed by `tile-proxy.fetchEither()` (fetching tileset info).
 
 <details>
 <summary>View Config Used</summary>
