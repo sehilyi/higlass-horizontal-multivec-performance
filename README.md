@@ -34,7 +34,7 @@ Inside of `Preparing`:
 
 <img width="689" alt="Screen Shot 2020-03-19 at 2 39 07 PM" src="https://user-images.githubusercontent.com/9922882/77102560-6ae95c00-69ef-11ea-8190-185761de93bb.png">
 
-- The process of fetching tilesets takes the most time duration (96%) in the _preparation_, mainly by `DataFetcher.fetchTilesDebounced()`, followed by `tile-proxy.fetchEither()`.
+- The process of fetching tilesets takes the most time duration (96%) in _Preparation_, mainly by `DataFetcher.fetchTilesDebounced()`, followed by `tile-proxy.fetchEither()`.
 
 <details>
 <summary>View Config Used</summary>
