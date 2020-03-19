@@ -1,9 +1,9 @@
 # higlass-horizontal-multivec-performance
 
 ## Settings
-- The number of rows (`Row`): `200`, `500`, `1,000`, `5,000`, and `10,000`
-- The size of a horizontal-multivec track (`Screen`): _full_ (`1742x938`) and _half_ (`875x488`)
-- Repeated five times for the each combination of {`Row`, `Screen`}, total `50` times (`5` * `5` * `2`).
+- The number of rows (**Row**): `200`, `500`, `1,000`, `5,000`, and `10,000`
+- The size of a horizontal-multivec track (**View**): full size (`1742x938`) and half size (`875x488`)
+- Repeated five times for the each combination of {**Row**, **View**}, total `50` times (`5` * `5` * `2`).
 - Machine: `MacBook Pro (16-inch, 2019), 2.6 GHz 6-Core Intel Core i7, 32 GB 2667 MHz DDR4` (power adapter connected, no unnecessary apps were running)
 - Browser: `Firefox 74.0 (64-bit)` (caching diabled)
 - Used a single `horizontal-multivec` track on the center (refer to viewConfig below).
@@ -17,6 +17,8 @@ Raw test results ([here](https://docs.google.com/spreadsheets/d/1tKy2PKL6rM5LCi-
 Summary of results:
 
 <img width="579" alt="Screen Shot 2020-03-19 at 1 52 47 PM" src="https://user-images.githubusercontent.com/9922882/77098863-7043a800-69e9-11ea-9ddd-bf3e547d6e5b.png">
+
+<img width="579" alt="Screen Shot 2020-03-19 at 5 23 24 PM" src="https://user-images.githubusercontent.com/9922882/77116311-60868c80-6a06-11ea-892c-81f32fc97290.png">
 
 - `Preparing` is the time duration until starting to render the heatmap.
     - Time calculation starts at `hglib.viewer()` ([here](https://github.com/sehilyi/higlass/blob/68573be63d652960539f92bbceeefb65ee393fa5/app/scripts/hglib.js#L108))
