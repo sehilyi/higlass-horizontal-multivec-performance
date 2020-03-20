@@ -11,7 +11,7 @@ This repository demonstrates the results of performance tests in rendering `hori
 - View config: A single `horizontal-multivec` track is positioned on `center` (refer to `viewConfig` below).
 - Datasets: Generated using [sehilyi/higlass-bigwigs-to-multivec](https://github.com/sehilyi/higlass-bigwigs-to-multivec) (base resolution=`1`).
 - Time duration to render `horizontal-multivec` tracks is calculated in a [separate branch](https://github.com/sehilyi/higlass/tree/sehilyi/bottleneck) of a [sehilyi/higlass fork](https://github.com/sehilyi/higlass/).
-- Currently, only the performance of the initial rendering is tested.
+- Test limitation: Only the performance of the initial rendering is tested. Random values are used.
 
 ## Results
 Raw test results ([here](https://docs.google.com/spreadsheets/d/1tKy2PKL6rM5LCi-hvITD9UjhbuMef35b49YBUDroN-c/edit#gid=0))
